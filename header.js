@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const breadcrumbs = document.querySelectorAll("#breadcrumb-list li a");
   if (breadcrumbs.length > 0) {
     const firstBreadcrumbName = breadcrumbs[0].textContent.trim().toLowerCase();
+    console.log(firstBreadcrumbName);
     document.querySelectorAll(".mc-navlink").forEach((link) => {
       if (link.textContent.trim().toLowerCase() === firstBreadcrumbName) {
         link.classList.add("active");
