@@ -22,30 +22,40 @@ document.addEventListener("DOMContentLoaded", () => {
       </header>
     `;
 
+  // Insert the header
   document.body.insertAdjacentHTML("afterbegin", headerHTML);
 
-  // NAVBAR HIGHLIGHTING
-  document.addEventListener("DOMContentLoaded", () => {
-    const breadcrumbs = document.querySelectorAll("#breadcrumb-list li a");
-    if (breadcrumbs.length === 0) return;
-
-    const firstBreadcrumbLink = breadcrumbs[0].href;
-    document.querySelectorAll(".mc-navlink").forEach((link) => {
-      if (link.href === firstBreadcrumbLink) {
-        link.classList.add("active");
+  // Populate breadcrumbs only if breadcrumbsPath exists and is an array
+  if (
+    typeof breadcrumbsPath !== "undefined" &&
+    Array.isArray(breadcrumbsPath)
+  ) {
+    const list = document.getElementById("breadcrumb-list");
+    breadcrumbsPath.forEach((item) => {
+      const li = document.createElement("li");
+      if (item.link) {
+        const a = document.createElement("a");
+        a.href = item.link;
+        a.textContent = item.name;
+        li.appendChild(a);
+      } else {
+        li.textContent = item.name;
       }
+      list.appendChild(li);
     });
-  });
+  }
 
   // NAVBAR HIGHLIGHTING: use first breadcrumb's name to mark active nav item
   const breadcrumbs = document.querySelectorAll("#breadcrumb-list li a");
-  console.log(breadcrumbs);
+  console.log("Breadcrumbs found:", breadcrumbs);
   if (breadcrumbs.length > 0) {
     const firstBreadcrumbName = breadcrumbs[0].textContent.trim().toLowerCase();
-    console.log(firstBreadcrumbName);
+    console.log("First breadcrumb name:", firstBreadcrumbName);
     document.querySelectorAll(".mc-navlink").forEach((link) => {
-      if (link.textContent.trim().toLowerCase() === firstBreadcrumbName) {
+      const navText = link.textContent.trim().toLowerCase();
+      if (navText === firstBreadcrumbName) {
         link.classList.add("active");
+        console.log("Added active class to:", link);
       }
     });
   }
