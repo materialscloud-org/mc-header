@@ -19,11 +19,9 @@ body {
 }
 
 .mc-nav .mc-navbrand {
-  float: left;
-  display: block;
-  text-align: center;
   font-size: 0px;
-  padding: 7px 15px 5px 20px;
+  margin-top: -8px;
+  margin-left: -5px
 }
 
 .mc-nav ul {
