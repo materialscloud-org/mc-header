@@ -19,9 +19,11 @@ body {
 }
 
 .mc-nav .mc-navbrand {
+  float: left;
+  display: block;
+  text-align: center;
   font-size: 0px;
-  margin-top: -8px;
-  margin-left: -5px
+  padding: 7px 15px 5px 20px;
 }
 
 .mc-nav ul {
@@ -29,6 +31,7 @@ body {
   display: flex;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 .mc-nav .mc-navlink {
@@ -39,8 +42,8 @@ body {
   line-height: 32px;
   font-weight: 700;
   text-align: center;
-  padding: 14px 15px;
   text-decoration: none;
+  padding: 14px 15px;
 }
 
 .mc-nav .mc-navlink:hover {
