@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // NAVBAR HIGHLIGHTING: use first breadcrumb's name to mark active nav item
   const breadcrumbs = document.querySelectorAll("#breadcrumb-list li a");
+  console.log(breadcrumbs);
   if (breadcrumbs.length > 0) {
     const firstBreadcrumbName = breadcrumbs[0].textContent.trim().toLowerCase();
     console.log(firstBreadcrumbName);
