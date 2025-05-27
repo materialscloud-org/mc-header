@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Materials Cloud Header Light</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="header.css" />
+  </head>
+  <body>
+    <header class="mc-header">
+      <nav class="mc-nav">
+        <ul>
+          <li>
+            <a class="mc-navbrand" href="https://www.materialscloud.org/home">
+              <img src="./mcloud_logo.png" height="50" />
+            </a>
+          </li>
+          <li>
+            <a class="mc-navlink" href="https://www.materialscloud.org/learn"
+              >LEARN</a
+            >
+          </li>
+          <li>
+            <a class="mc-navlink" href="https://www.materialscloud.org/work"
+              >WORK</a
+            >
+          </li>
+          <li>
+            <a class="mc-navlink" href="https://www.materialscloud.org/discover"
+              >DISCOVER</a
+            >
+          </li>
+          <li>
+            <a class="mc-navlink" href="https://www.materialscloud.org/explore"
+              >EXPLORE</a
+            >
+          </li>
+          <li>
+            <a class="mc-navlink" href="https://www.materialscloud.org/archive"
+              >ARCHIVE</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <nav aria-label="breadcrumb">
+        <ul class="mc-breadcrumb" id="breadcrumb-list"></ul>
+      </nav>
+    </header>
+    <script>
+      const breadcrumbsPath = [
+        { name: "Materials Cloud", link: "https://www.materialscloud.org" },
+        { name: "Tools", link: "https://www.materialscloud.org/tools" },
+        { name: "Cool Tool", link: null },
+      ];
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const list = document.getElementById("breadcrumb-list");
+
+        breadcrumbsPath.forEach((item) => {
+          const li = document.createElement("li");
+          if (item.link) {
+            const a = document.createElement("a");
+            a.href = item.link;
+            a.textContent = item.name;
+            li.appendChild(a);
+          } else {
+            li.textContent = item.name;
+          }
+          list.appendChild(li);
+        });
+      });
+    </script>
+  </body>
+</html>
