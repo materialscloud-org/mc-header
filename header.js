@@ -37,20 +37,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // BREADCRUMB FORMING.
-  if (typeof breadcrumbsPath !== "undefined") {
-    const list = document.getElementById("breadcrumb-list");
-    breadcrumbsPath.forEach((item) => {
-      const li = document.createElement("li");
-      if (item.link) {
-        const a = document.createElement("a");
-        a.href = item.link;
-        a.textContent = item.name;
-        li.appendChild(a);
-      } else {
-        li.textContent = item.name;
+  // NAVBAR HIGHLIGHTING: use first breadcrumb's name to mark active nav item
+  const breadcrumbs = document.querySelectorAll("#breadcrumb-list li a");
+  if (breadcrumbs.length > 0) {
+    const firstBreadcrumbName = breadcrumbs[0].textContent.trim().toLowerCase();
+    document.querySelectorAll(".mc-navlink").forEach((link) => {
+      if (link.textContent.trim().toLowerCase() === firstBreadcrumbName) {
+        link.classList.add("active");
       }
-      list.appendChild(li);
     });
   }
 });
