@@ -1,6 +1,6 @@
 import { logoBase64 } from "./logo.js";
 
-const style = `
+const cssText = `
 body {
   margin: 0;
 }
