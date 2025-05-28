@@ -1,12 +1,13 @@
 body {
-  font-family: sans-serif;
   margin: 0;
-  background: #fafafa;
 }
 
 .mc-header {
   background: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  margin: 0;
+  background-color: #fafafa;
+  margin-top: 0 !important;
 }
 
 .mc-header-separator {
