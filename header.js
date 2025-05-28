@@ -10,7 +10,6 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   margin: 0;
   margin-top: 0 !important;
-  line-height: 16px;
 }
 
 .mc-header-separator {
@@ -22,7 +21,6 @@ body {
 }
 
 .mc-header .mc-nav {
-  outline: 2px solid red; 
   background-color: #fff;
   overflow: visible;
   border-bottom: 3px solid #dee6e6;
@@ -31,7 +29,6 @@ body {
   font-weight: 400;
   font-size: 16px;
   box-sizing: border-box;
-  line-height: 16px;
 }
 
 .mc-header .mc-nav .mc-navbrand {
@@ -43,7 +40,6 @@ body {
 }
 
 .mc-header .mc-nav ul {
-  outline: 2px solid purple; 
   list-style: none;
   display: flex;
   margin: 0;
