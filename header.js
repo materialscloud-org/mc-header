@@ -1,6 +1,199 @@
-// header.js
-import { logoBase64 } from "./logo";
+import { logoBase64 } from "./logo.js";
 
+const style = `
+body {
+  margin: 0;
+}
+
+.mc-header {
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  margin: 0;
+  margin-top: 0 !important;
+}
+
+.mc-header-separator {
+  width: 100%;
+  height: 16px;
+  background: rgb(240, 246, 249);
+  margin: 0;
+  border: none;
+}
+
+.mc-nav {
+  background-color: #fff;
+  overflow: visible;
+  border-bottom: 3px solid #dee6e6;
+  z-index: 10;
+  font-family: sans-serif;
+  font-weight: 700;
+}
+
+.mc-nav .mc-navbrand {
+  float: left;
+  display: block;
+  text-align: center;
+  font-size: 0px;
+  padding: 7px 15px 5px 20px;
+}
+
+.mc-nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.mc-nav .mc-navlink {
+  float: left;
+  display: block;
+  color: #455860;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  padding: 14px 15px;
+}
+
+.mc-nav .mc-navlink:hover {
+  color: #8fa5af;
+}
+
+.mc-nav .mc-navlink.active {
+  background-color: #fbfcfc;
+  color: #cc1b30;
+  pointer-events: none;
+  cursor: default;
+}
+
+.mc-nav .mc-navlink.active:hover {
+  color: #cc1b30;
+}
+
+.mc-more-dropdown {
+  position: relative;
+  z-index: 200;
+}
+
+.mc-dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #ffffff;
+  min-width: 220px;
+  border-radius: 6px;
+  border: 2px solid #dee6e6;
+  z-index: 100;
+  padding: 5px 0px;
+  margin-top: -8px;
+}
+
+.mc-dropdown-menu li a {
+  min-width: 220px;
+  float: none;
+  color: #455860;
+  font-weight: 300;
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size: 16px;
+  line-height: 10px;
+  z-index: 100;
+}
+
+.mc-dropdown-menu li a:hover {
+  background-color: #fbfcfc;
+}
+
+ul.mc-breadcrumb {
+  padding: 7px 10px 7px 20px;
+  list-style: none;
+  background-color: #f5f5f5;
+  border-radius: 2px;
+  border: 1px solid #d6d6d6;
+  font-size: 16px;
+  font-weight: 300;
+  font-family: sans-serif;
+  text-align: left;
+  margin: 10px 15px 30px 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: start;
+  align-items: center;
+}
+
+ul.mc-breadcrumb li {
+  display: inline;
+  line-height: 1;
+  margin-right: 46px;
+  position: relative;
+}
+
+ul.mc-breadcrumb li a {
+  color: #303f9f;
+  text-decoration: none;
+}
+
+ul.mc-breadcrumb li a[href]:hover {
+  text-decoration: underline;
+}
+
+ul.mc-breadcrumb li a:not([href]):hover {
+  color: #303f9f;
+}
+
+.mc-breadcrumb li a::after {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid #f5f5f5;
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  z-index: 2;
+  right: 0;
+  z-index: 2;
+  transform: translate(30px, 0);
+}
+
+.mc-breadcrumb li a::before {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid #d6d6d6;
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  margin-left: 2px;
+  right: 0;
+  z-index: 1;
+  transform: translate(32px, 0);
+}
+
+.mc-breadcrumb li:last-child a {
+  background: transparent !important;
+  color: #303f9f;
+}
+.mc-breadcrumb li:last-child a::after,
+.mc-breadcrumb li:last-child a::before {
+  border: 0;
+  display: none;
+}
+
+`;
+
+// header.js
 document.addEventListener("DOMContentLoaded", () => {
   const headerHTML = `
   <header class="mc-header">
@@ -57,8 +250,13 @@ document.addEventListener("DOMContentLoaded", () => {
 </header>
     `;
 
-  // Insert the header
+  // Insert header
   document.body.insertAdjacentHTML("afterbegin", headerHTML);
+
+  // Load headerCSS
+  const style = document.createElement("style");
+  style.textContent = cssText;
+  document.head.appendChild(style);
 
   // Populate breadcrumbs only if breadcrumbsPath exists and is an array
   if (
