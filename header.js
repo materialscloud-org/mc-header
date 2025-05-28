@@ -1,6 +1,5 @@
+import { logoBase64 } from "./logo.js";
 // header.js
-import { logoBase64 } from "./logo";
-
 document.addEventListener("DOMContentLoaded", () => {
   const headerHTML = `
   <header class="mc-header">
@@ -57,8 +56,18 @@ document.addEventListener("DOMContentLoaded", () => {
 </header>
     `;
 
-  // Insert the header
+  // Insert header
   document.body.insertAdjacentHTML("afterbegin", headerHTML);
+
+  // Load headerCSS
+  const loadHeaderCSS = () => {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "./header.css"; // adjust path as needed
+    document.head.appendChild(link);
+  };
+
+  loadHeaderCSS();
 
   // Populate breadcrumbs only if breadcrumbsPath exists and is an array
   if (
