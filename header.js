@@ -22,6 +22,7 @@ body {
 }
 
 .mc-header .mc-nav {
+  outline: 2px solid red; 
   background-color: #fff;
   overflow: visible;
   border-bottom: 3px solid #dee6e6;
@@ -42,6 +43,7 @@ body {
 }
 
 .mc-header .mc-nav ul {
+  outline: 2px solid purple; 
   list-style: none;
   display: flex;
   margin: 0;
