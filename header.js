@@ -10,6 +10,7 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   margin: 0;
   margin-top: 0 !important;
+  line-height: 16px;
 }
 
 .mc-header-separator {
