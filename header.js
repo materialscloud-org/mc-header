@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <ul>
       <li>
         <a class="mc-navbrand" href="https://www.materialscloud.org/home">
-          <img src="https://www.materialscloud.org/work/images/mcloud_logo.png" height="50" />
+          <img src="https://cdn.jsdelivr.net/gh/materialscloud-org/mc-header@main/mcloud_logo.png" height="50" />
         </a>
       </li>
       <li>
