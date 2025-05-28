@@ -26,8 +26,10 @@ body {
   border-bottom: 3px solid #dee6e6;
   z-index: 10;
   font-family: sans-serif;
-  font-weight: 700;
+  font-weight: 400;
+  font-size: 16px;
   box-sizing: border-box;
+  line-height 24px;
 }
 
 .mc-header .mc-nav .mc-navbrand {
