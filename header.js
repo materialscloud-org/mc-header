@@ -1,4 +1,6 @@
 // header.js
+import { logoBase64 } from "./logo";
+
 document.addEventListener("DOMContentLoaded", () => {
   const headerHTML = `
   <header class="mc-header">
@@ -6,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <ul>
       <li>
         <a class="mc-navbrand" href="https://www.materialscloud.org/home">
-          <img src="https://cdn.jsdelivr.net/gh/materialscloud-org/mc-header@main/mcloud_logo.png" height="50" />
+          <img src="${logoBase64}" height="50" />
         </a>
       </li>
       <li>
