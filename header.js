@@ -1,25 +1,58 @@
 // header.js
 document.addEventListener("DOMContentLoaded", () => {
   const headerHTML = `
-      <header class="mc-header">
-        <nav class="mc-nav">
-          <ul>
-            <li>
-              <a class="mc-navbrand" href="https://www.materialscloud.org/home">
-                <img src="mcloud_logo.png" height="50" verticle />
-              </a>
-            </li>
-            <li><a class="mc-navlink" href="https://www.materialscloud.org/learn">LEARN</a></li>
-            <li><a class="mc-navlink" href="https://www.materialscloud.org/work">WORK</a></li>
-            <li><a class="mc-navlink" href="https://www.materialscloud.org/discover">DISCOVER</a></li>
-            <li><a class="mc-navlink" href="https://www.materialscloud.org/explore">EXPLORE</a></li>
-            <li><a class="mc-navlink" href="https://www.materialscloud.org/archive">ARCHIVE</a></li>
-          </ul>
-        </nav>
-        <nav aria-label="breadcrumb">
-          <ul class="mc-breadcrumb" id="breadcrumb-list"></ul>
-        </nav>
-      </header>
+  <header class="mc-header">
+  <nav class="mc-nav">
+    <ul>
+      <li>
+        <a class="mc-navbrand" href="https://www.materialscloud.org/home">
+          <img src="mcloud_logo.png" height="50" verticle />
+        </a>
+      </li>
+      <li>
+        <a class="mc-navlink" href="https://www.materialscloud.org/learn"
+          >LEARN</a
+        >
+      </li>
+      <li>
+        <a class="mc-navlink" href="https://www.materialscloud.org/work"
+          >WORK</a
+        >
+      </li>
+      <li>
+        <a class="mc-navlink" href="https://www.materialscloud.org/discover"
+          >DISCOVER</a
+        >
+      </li>
+      <li>
+        <a class="mc-navlink" href="https://www.materialscloud.org/explore"
+          >EXPLORE</a
+        >
+      </li>
+      <li>
+        <a class="mc-navlink" href="https://www.materialscloud.org/archive"
+          >ARCHIVE</a
+        >
+      </li>
+      <li class="mc-more-dropdown" style="margin-left:auto; position:relative;">
+        <a class="mc-navlink" href="#" id="mc-more-link">More ▾</a>
+        <ul class="mc-dropdown-menu" id="mc-dropdown-menu" style="display:none; position:absolute; right:0; top:80%; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.08); min-width:140px; padding:0; margin:0; border-radius:4px; z-index:100;">
+          <li><a class="mc-dropdown-link" href="https://www.materialscloud.org/policies">Policies</a></li>
+          <li><a class="mc-dropdown-link" href="https://www.materialscloud.org/dmp">Data Management Plan</a></li>
+          <li><a class="mc-dropdown-link" href="https://www.materialscloud.org/termssummary">Terms of Use</a></li>
+          <li><a class="mc-dropdown-link" href="https://www.materialscloud.org/infrastructure">Infrastructure</a></li>
+          <li><a class="mc-dropdown-link" href="https://www.materialscloud.org/team">Team & Contact</a></li>
+          <li><a class="mc-dropdown-link" href="https://www.materialscloud.org/home#partners">Partners</a></li>
+          <li><a class="mc-dropdown-link" href="https://www.materialscloud.org/explore/connect">Connect your REST API</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div class="mc-header-separator"></div>
+  <nav aria-label="breadcrumb">
+    <ul class="mc-breadcrumb" id="breadcrumb-list"></ul>
+  </nav>
+</header>
     `;
 
   // Insert the header
@@ -56,6 +89,24 @@ document.addEventListener("DOMContentLoaded", () => {
       if (navText === firstBreadcrumbName) {
         link.classList.add("active");
         console.log("Added active class to:", link);
+      }
+    });
+  }
+
+  // DROPDOWN: Toggle More menu
+  const moreLink = document.getElementById("mc-more-link");
+  const dropdownMenu = document.getElementById("mc-dropdown-menu");
+  if (moreLink && dropdownMenu) {
+    moreLink.addEventListener("click", (e) => {
+      console.log("More link clicked");
+      e.preventDefault();
+      dropdownMenu.style.display =
+        dropdownMenu.style.display === "block" ? "none" : "block";
+    });
+    // Hide dropdown when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!moreLink.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.style.display = "none";
       }
     });
   }
