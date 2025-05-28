@@ -29,7 +29,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   box-sizing: border-box;
-  line-height 24px;
+  line-height: 16px;
 }
 
 .mc-header .mc-nav .mc-navbrand {
