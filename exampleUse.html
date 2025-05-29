@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Materials Cloud Header Light</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <script>
+      var breadcrumbsPath = [
+        { name: "Work", link: "https://www.materialscloud.org/work/menu" },
+        {
+          name: "Tools",
+          link: "https://www.materialscloud.org/work/tools/options",
+        },
+        {
+          name: "EXAMPLE NAME",
+          link: null,
+        },
+      ];
+    </script>
+    <script src="header.js" defer></script>
+    <section
+      style="
+        font-family: Arial, sans-serif;
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 20px;
+        max-width: 1100px;
+        margin: 30px auto;
+        border-radius: 8px;
+        font-size: 1.25em;
+      "
+    >
+      <h3 style="color: #222; margin-top: 0">Usage:</h3>
+      <p style="color: #555; line-height: 1.5">
+        Injection of mc-header is done by including the
+        <code>header.js</code> script in the body of your HTML page.
+      </p>
+      <pre
+        style="
+          background: #272822;
+          color: #f8f8f2;
+          padding: 15px;
+          border-radius: 4px;
+          overflow-x: auto;
+          white-space: pre;
+        "
+      >
+&lt;script src="header.js" defer&gt;&lt;/script&gt;</pre
+      >
+      <p style="color: #555; line-height: 1.5">
+        If the page has breadcrumbs, you can set them with the
+        <code>breadcrumbsPath</code> variable before including the script:
+      </p>
+
+      <pre
+        style="
+          background: #272822;
+          color: #f8f8f2;
+          padding: 15px;
+          border-radius: 4px;
+          overflow-x: auto;
+          white-space: pre;
+        "
+      >
+&lt;script&gt;
+  var breadcrumbsPath = [
+    { name: "Work", link: "https://www.materialscloud.org/work/menu" },
+    {
+      name: "Tools",
+      link: "https://www.materialscloud.org/work/tools/options",
+    },
+    {
+      name: "EXAMPLE NAME",
+      link: null,
+    },
+  ];
+  &lt;/script&gt;
+  &lt;script src="header.js" defer&gt;&lt;/script&gt;</pre
+      >
+
+      <p style="color: #555; line-height: 1.5">
+        Make sure to load <code>header.js</code> with the
+        <code>defer</code> attribute so it runs after the DOM is ready.
+      </p>
+    </section>
+    <section
+    style="
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 20px;
+      max-width: 1100px;
+      margin: 30px auto;
+      border-radius: 8px;
+      font-size: 1.5em;
+    "
+  >
+  The script will automatically create a header with some reserved css styling;
+  things should be self-contained within the js but to avoid conflicts its recommended to not 
+  use <code>.mc-header</code> as a css classname and to not override <code>.body: { margin: 0px} </code>
+  </body>
+</html>
