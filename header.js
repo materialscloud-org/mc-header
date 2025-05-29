@@ -23,20 +23,20 @@ body {
   background-color: #fff;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 0 20px;
   border-bottom: 3px solid #dee6e6;
-  z-index: 10;
   font-family: sans-serif;
   font-weight: 400;
   font-size: 16px;
   box-sizing: border-box;
-  height: 60px; /* set explicit height if needed */
+  height: 65px; 
+  line-height: 65px;
 }
 
 .mc-header .mc-navbrand {
   font-size: 0;
   padding: 7px 15px 5px 0;
+  float: left;
+  line-height: 0;
 }
 
 .mc-nav .mc-navlink {
@@ -244,7 +244,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // DROPDOWN: Toggle More menu
   const moreLink = document.getElementById("mc-more-link");
   const dropdownMenu = document.getElementById("mc-dropdown-menu");
   if (moreLink && dropdownMenu) {
@@ -254,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
       dropdownMenu.style.display =
         dropdownMenu.style.display === "block" ? "none" : "block";
     });
-    // Hide dropdown when clicking outside
+
     document.addEventListener("click", (e) => {
       if (!moreLink.contains(e.target) && !dropdownMenu.contains(e.target)) {
         dropdownMenu.style.display = "none";
