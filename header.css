@@ -1,14 +1,11 @@
 body {
   margin: 0;
 }
-
 .mc-header {
   background: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   margin: 0;
-  margin-top: 0 !important;
 }
-
 .mc-header-separator {
   width: 100%;
   height: 16px;
@@ -16,96 +13,73 @@ body {
   margin: 0;
   border: none;
 }
-
-.mc-nav {
-  background-color: #fff;
-  overflow: visible;
-  border-bottom: 3px solid #dee6e6;
-  z-index: 10;
-  font-family: sans-serif;
-  font-weight: 700;
-}
-
-.mc-nav .mc-navbrand {
-  float: left;
-  display: block;
-  text-align: center;
-  font-size: 0px;
-  padding: 7px 15px 5px 20px;
-}
-
-.mc-nav ul {
-  list-style: none;
+.mc-header .mc-nav {
   display: flex;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-.mc-nav .mc-navlink {
-  float: left;
-  display: block;
-  color: #455860;
+  align-items: center;
+  border-bottom: 3px solid #dee6e6;
+  font-family: sans-serif;
+  font-weight: 400;
   font-size: 16px;
-  line-height: 32px;
-  font-weight: 700;
-  text-align: center;
-  text-decoration: none;
-  padding: 14px 15px;
+  box-sizing: border-box;
+  height: 65px;
+  line-height: 65px;
 }
-
-.mc-nav .mc-navlink:hover {
+.mc-header .mc-navbrand {
+  min-width: 58px;
+  font-size: 0;
+  padding: 7px 15px 5px 22px;
+  float: left;
+  line-height: 0;
+}
+.mc-nav .mc-navlink {
+  display: inline-block;
+  padding: 14px 15px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 32px;
+  height: 60px;
+  box-sizing: border-box;
+  text-align: center;
+  color: #455860;
+  text-decoration: none;
+}
+.mc-header .mc-navlink:hover {
   color: #8fa5af;
 }
-
 .mc-nav .mc-navlink.active {
-  background-color: #fbfcfc;
   color: #cc1b30;
   pointer-events: none;
   cursor: default;
 }
-
-.mc-nav .mc-navlink.active:hover {
-  color: #cc1b30;
-}
-
-.mc-more-dropdown {
+.mc-header .mc-more-dropdown {
   position: relative;
   z-index: 200;
 }
-
-.mc-dropdown-menu {
+.mc-header .mc-drop-menu {
   display: none;
   position: absolute;
   right: 0;
-  background-color: #ffffff;
+  background-color: #fff;
   min-width: 220px;
   border-radius: 6px;
   border: 2px solid #dee6e6;
   z-index: 100;
-  padding: 5px 0px;
+  padding: 5px 0;
   margin-top: -8px;
 }
-
-.mc-dropdown-menu li a {
-  min-width: 220px;
-  float: none;
+.mc-header .mc-drop-menu a {
+  display: block;
   color: #455860;
   font-weight: 300;
   padding: 10px 14px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
   font-size: 16px;
   line-height: 10px;
-  z-index: 100;
+  text-decoration: none;
 }
-
-.mc-dropdown-menu li a:hover {
+.mc-header .mc-drop-menu a:hover {
   background-color: #fbfcfc;
 }
-
-ul.mc-breadcrumb {
+.mc-header ul.mc-breadcrumb {
   padding: 7px 10px 7px 20px;
   list-style: none;
   background-color: #f5f5f5;
@@ -118,37 +92,26 @@ ul.mc-breadcrumb {
   margin: 10px 15px 30px 15px;
   overflow: hidden;
   display: flex;
-  flex-direction: row;
-
   justify-content: start;
   align-items: center;
 }
-
-ul.mc-breadcrumb li {
+.mc-header ul.mc-breadcrumb li {
+  color: #303f9f;
   display: inline;
   line-height: 1;
   margin-right: 46px;
   position: relative;
 }
-
-ul.mc-breadcrumb li a {
-  color: #303f9f;
+.mc-header ul.mc-breadcrumb li a {
   text-decoration: none;
 }
-
-ul.mc-breadcrumb li a[href]:hover {
+.mc-header ul.mc-breadcrumb li a[href]:hover {
   text-decoration: underline;
 }
 
-ul.mc-breadcrumb li a:not([href]):hover {
-  color: #303f9f;
-}
-
-.mc-breadcrumb li a::after {
+.mc-header .mc-breadcrumb li a::after {
   content: " ";
   display: block;
-  width: 0;
-  height: 0;
   border-top: 50px solid transparent;
   border-bottom: 50px solid transparent;
   border-left: 30px solid #f5f5f5;
@@ -157,15 +120,11 @@ ul.mc-breadcrumb li a:not([href]):hover {
   margin-top: -50px;
   z-index: 2;
   right: 0;
-  z-index: 2;
   transform: translate(30px, 0);
 }
-
-.mc-breadcrumb li a::before {
+.mc-header .mc-breadcrumb li a::before {
   content: " ";
   display: block;
-  width: 0;
-  height: 0;
   border-top: 50px solid transparent;
   border-bottom: 50px solid transparent;
   border-left: 30px solid #d6d6d6;
@@ -177,13 +136,12 @@ ul.mc-breadcrumb li a:not([href]):hover {
   z-index: 1;
   transform: translate(32px, 0);
 }
-
-.mc-breadcrumb li:last-child a {
+.mc-header .mc-breadcrumb li:last-child a {
   background: transparent !important;
   color: #303f9f;
 }
-.mc-breadcrumb li:last-child a::after,
-.mc-breadcrumb li:last-child a::before {
+.mc-header .mc-breadcrumb li:last-child a::after,
+.mc-header .mc-breadcrumb li:last-child a::before {
   border: 0;
   display: none;
 }
