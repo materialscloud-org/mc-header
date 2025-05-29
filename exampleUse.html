@@ -41,7 +41,9 @@
         Injection of mc-header is done by including the
         <code>header.js</code> script in the body of your HTML page.
       </p>
-      <pre
+      <p style="color: #555; line-height: 1.5">
+        Local:
+        <pre
         style="
           background: #272822;
           color: #f8f8f2;
@@ -52,6 +54,21 @@
         "
       >
 &lt;script src="header.js" defer&gt;&lt;/script&gt;</pre
+      >
+      <p style="color: #555; line-height: 1.5">
+        or via jsdelivr CDN.</p>
+      </p>
+      <pre
+        style="
+          background: #272822;
+          color: #f8f8f2;
+          padding: 15px;
+          border-radius: 4px;
+          overflow-x: auto;
+          white-space: pre;
+        "
+      >
+&lt;script src="https://cdn.jsdelivr.net/gh/materialscloud-org/mc-header@v0.1.0/header.js" defer&gt;&lt;/script&gt;</pre
       >
       <p style="color: #555; line-height: 1.5">
         If the page has breadcrumbs, you can set them with the
@@ -81,7 +98,7 @@
     },
   ];
   &lt;/script&gt;
-  &lt;script src="header.js" defer&gt;&lt;/script&gt;</pre
+  &lt;script src="https://cdn.jsdelivr.net/gh/materialscloud-org/mc-header@v0.1.0/header.js" defer&gt;&lt;/script&gt;</pre
       >
 
       <p style="color: #555; line-height: 1.5">
@@ -94,15 +111,19 @@
       font-family: Arial, sans-serif;
       background: #f9f9f9;
       border: 1px solid #ddd;
-      padding: 20px;
+      padding: 0px 15px 5px 15px;
       max-width: 1100px;
       margin: 30px auto;
-      border-radius: 8px;
       font-size: 1.5em;
     "
   >
-  The script will automatically create a header with some reserved css styling;
-  things should be self-contained within the js but to avoid conflicts its recommended to not 
+  <p style="color: #555; line-height: 1.5">
+  The script will create a header with some reserved css styling;
+  most things should be self-contained within the js but to avoid conflicts its recommended to not 
   use <code>.mc-header</code> as a css classname and to not override <code>.body: { margin: 0px} </code>
+  </p>
+
+  *Note*: Check the version in the CDN call. There may be a newer release available.
+  Due to the way jsdDelivr caches gh-releases this may switch to npm.
   </body>
 </html>
