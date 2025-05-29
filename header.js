@@ -117,6 +117,7 @@ body {
   color: #303f9f;
   display: inline;
   line-height: 1;
+  font-size: 16px;
   margin-right: 46px;
   position: relative;
 }
