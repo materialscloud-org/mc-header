@@ -9,7 +9,6 @@ body {
   background: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   margin: 0;
-  margin-top: 0 !important;
 }
 
 .mc-header-separator {
@@ -22,57 +21,45 @@ body {
 
 .mc-header .mc-nav {
   background-color: #fff;
-  overflow: visible;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 20px;
   border-bottom: 3px solid #dee6e6;
   z-index: 10;
   font-family: sans-serif;
   font-weight: 400;
   font-size: 16px;
   box-sizing: border-box;
-  line-height: 0px !important;
+  height: 60px; /* set explicit height if needed */
 }
 
-.mc-header .mc-nav .mc-navbrand {
-  float: left;
-  display: block;
-  text-align: center;
-  font-size: 0px;
-  padding: 7px 15px 5px 20px;
+.mc-header .mc-navbrand {
+  font-size: 0;
+  padding: 7px 15px 5px 0;
 }
 
-.mc-header .mc-nav ul {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-.mc-header .mc-nav .mc-navlink {
-  float: left;
-  display: block;
-  color: #455860;
-  font-size: 16px;
-  line-height: 32px;
-  font-weight: 700;
-  text-align: center;
-  text-decoration: none;
+.mc-nav .mc-navlink {
+  display: inline-block;
   padding: 14px 15px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 32px;
+  height: 60px;
+  box-sizing: border-box;
+  text-align: center;
+  color: #455860;
+  text-decoration: none;
 }
 
-.mc-header .mc-nav .mc-navlink:hover {
+.mc-header .mc-navlink:hover {
   color: #8fa5af;
 }
 
-.mc-header .mc-nav .mc-navlink.active {
-  background-color: #fbfcfc;
+.mc-nav .mc-navlink.active {
   color: #cc1b30;
   pointer-events: none;
   cursor: default;
-}
-
-.mc-header .mc-nav .mc-navlink.active:hover {
-  color: #cc1b30;
 }
 
 .mc-header .mc-more-dropdown {
@@ -84,30 +71,26 @@ body {
   display: none;
   position: absolute;
   right: 0;
-  background-color: #ffffff;
+  background-color: #fff;
   min-width: 220px;
   border-radius: 6px;
   border: 2px solid #dee6e6;
   z-index: 100;
-  padding: 5px 0px;
+  padding: 5px 0;
   margin-top: -8px;
 }
 
-.mc-header .mc-dropdown-menu li a {
-  min-width: 220px;
-  float: none;
+.mc-header .mc-dropdown-menu a {
+  display: block;
   color: #455860;
   font-weight: 300;
   padding: 10px 14px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
   font-size: 16px;
   line-height: 10px;
-  z-index: 100;
+  text-decoration: none;
 }
 
-.mc-header .mc-dropdown-menu li a:hover {
+.mc-header .mc-dropdown-menu a:hover {
   background-color: #fbfcfc;
 }
 
@@ -201,52 +184,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const headerHTML = `
   <header class="mc-header">
   <nav class="mc-nav">
-    <ul>
-      <li>
-        <a class="mc-navbrand" href="https://www.materialscloud.org/home">
-          <img src="${logoBase64}" height="50" />
-        </a>
-      </li>
-      <li>
-        <a class="mc-navlink" href="https://www.materialscloud.org/learn"
-          >LEARN</a
-        >
-      </li>
-      <li>
-        <a class="mc-navlink" href="https://www.materialscloud.org/work"
-          >WORK</a
-        >
-      </li>
-      <li>
-        <a class="mc-navlink" href="https://www.materialscloud.org/discover"
-          >DISCOVER</a
-        >
-      </li>
-      <li>
-        <a class="mc-navlink" href="https://www.materialscloud.org/explore"
-          >EXPLORE</a
-        >
-      </li>
-      <li>
-        <a class="mc-navlink" href="https://www.materialscloud.org/archive"
-          >ARCHIVE</a
-        >
-      </li>
-      <li class="mc-more-dropdown" style="margin-left:auto; position:relative;">
-        <a class="mc-navlink" href="#" id="mc-more-link">More ▾</a>
-        <ul class="mc-dropdown-menu" id="mc-dropdown-menu" style="display:none; position:absolute; right:0; top:80%; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.08); min-width:140px; padding:0; margin:0; border-radius:4px; z-index:100;">
-          <li><a class="mc-dropdown-link" href="https://www.materialscloud.org/policies">Policies</a></li>
-          <li><a class="mc-dropdown-link" href="https://www.materialscloud.org/dmp">Data Management Plan</a></li>
-          <li><a class="mc-dropdown-link" href="https://www.materialscloud.org/termssummary">Terms of Use</a></li>
-          <li><a class="mc-dropdown-link" href="https://www.materialscloud.org/infrastructure">Infrastructure</a></li>
-          <li><a class="mc-dropdown-link" href="https://www.materialscloud.org/team">Team & Contact</a></li>
-          <li><a class="mc-dropdown-link" href="https://www.materialscloud.org/home#partners">Partners</a></li>
-          <li><a class="mc-dropdown-link" href="https://www.materialscloud.org/explore/connect">Connect your REST API</a></li>
-        </ul>
-      </li>
-    </ul>
+    <a class="mc-navbrand" href="https://www.materialscloud.org/home">
+      <img src="${logoBase64}" height="50" />
+    </a>
+
+    <a class="mc-navlink" href="https://www.materialscloud.org/learn">LEARN</a>
+    <a class="mc-navlink" href="https://www.materialscloud.org/work">WORK</a>
+    <a class="mc-navlink" href="https://www.materialscloud.org/discover">DISCOVER</a>
+    <a class="mc-navlink" href="https://www.materialscloud.org/explore">EXPLORE</a>
+    <a class="mc-navlink" href="https://www.materialscloud.org/archive">ARCHIVE</a>
+
+    <div class="mc-more-dropdown" style="margin-left: auto; position: relative;">
+      <a class="mc-navlink" href="#" id="mc-more-link">More ▾</a>
+      <div class="mc-dropdown-menu" id="mc-dropdown-menu" style="display: none;">
+        <a class="mc-dropdown-link" href="https://www.materialscloud.org/policies">Policies</a>
+        <a class="mc-dropdown-link" href="https://www.materialscloud.org/dmp">Data Management Plan</a>
+        <a class="mc-dropdown-link" href="https://www.materialscloud.org/termssummary">Terms of Use</a>
+        <a class="mc-dropdown-link" href="https://www.materialscloud.org/infrastructure">Infrastructure</a>
+        <a class="mc-dropdown-link" href="https://www.materialscloud.org/team">Team & Contact</a>
+        <a class="mc-dropdown-link" href="https://www.materialscloud.org/home#partners">Partners</a>
+        <a class="mc-dropdown-link" href="https://www.materialscloud.org/explore/connect">Connect your REST API</a>
+      </div>
+    </div>
   </nav>
+
   <div class="mc-header-separator"></div>
+
   <nav aria-label="breadcrumb">
     <ul class="mc-breadcrumb" id="breadcrumb-list"></ul>
   </nav>
@@ -278,21 +241,6 @@ document.addEventListener("DOMContentLoaded", () => {
         li.textContent = item.name;
       }
       list.appendChild(li);
-    });
-  }
-
-  // NAVBAR HIGHLIGHTING: use first breadcrumb's name to mark active nav item
-  const breadcrumbs = document.querySelectorAll("#breadcrumb-list li a");
-  console.log("Breadcrumbs found:", breadcrumbs);
-  if (breadcrumbs.length > 0) {
-    const firstBreadcrumbName = breadcrumbs[0].textContent.trim().toLowerCase();
-    console.log("First breadcrumb name:", firstBreadcrumbName);
-    document.querySelectorAll(".mc-navlink").forEach((link) => {
-      const navText = link.textContent.trim().toLowerCase();
-      if (navText === firstBreadcrumbName) {
-        link.classList.add("active");
-        console.log("Added active class to:", link);
-      }
     });
   }
 
