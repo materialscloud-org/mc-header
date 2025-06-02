@@ -1,4 +1,4 @@
-const svgS = `
+const mc_logo_svg = `
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 89 72">
   <defs>
     <path id="r_0" fill="none" d="M334.5 550.23c0-4 3.228-7.2207 7.2086-7.2207 3.980 0 7.207 3.233 7.207 7.2207"/>
@@ -15,7 +15,7 @@ const svgS = `
 </svg>
 `;
 
-const cssS = `
+const mc_header_css = `
 body {
   margin: 0;
 }
@@ -35,13 +35,15 @@ body {
   display: flex;
   align-items: center;
   border-bottom: 3px solid #dee6e6;
-  font-family: sans-serif;
+  font-family: "sans-serif", "Open Sans";
   font-weight: 400;
   font-size: 16px;
   box-sizing: border-box;
   height: 65px;
   line-height: 65px;
+  position: relative;
 }
+
 .mc-header .mc-navbrand {
   min-width: 58px;
   font-size: 0;
@@ -49,6 +51,13 @@ body {
   float: left;
   line-height: 0;
 }
+
+.mc-header .mc-navbrand svg {
+  width: 58px;
+  height: auto;
+  display: block;
+}
+
 .mc-nav .mc-navlink {
   display: inline-block;
   padding: 14px 15px;
@@ -61,18 +70,20 @@ body {
   color: #455860;
   text-decoration: none;
 }
+
 .mc-header .mc-navlink:hover {
   color: #8fa5af;
 }
+
 .mc-nav .mc-navlink.active {
   color: #cc1b30;
-  pointer-events: none;
-  cursor: default;
 }
+
 .mc-header .mc-more-dropdown {
   position: relative;
   z-index: 200;
 }
+
 .mc-header .mc-drop-menu {
   display: none;
   position: absolute;
@@ -85,6 +96,7 @@ body {
   padding: 5px 0;
   margin-top: -8px;
 }
+
 .mc-header .mc-drop-menu a {
   display: block;
   color: #455860;
@@ -94,9 +106,11 @@ body {
   line-height: 10px;
   text-decoration: none;
 }
+
 .mc-header .mc-drop-menu a:hover {
   background-color: #fbfcfc;
 }
+
 .mc-header ul.mc-breadcrumb {
   padding: 7px 10px 7px 20px;
   list-style: none;
@@ -113,6 +127,7 @@ body {
   justify-content: start;
   align-items: center;
 }
+
 .mc-header ul.mc-breadcrumb li {
   color: #303f9f;
   display: inline;
@@ -121,9 +136,11 @@ body {
   margin-right: 46px;
   position: relative;
 }
+
 .mc-header ul.mc-breadcrumb li a {
   text-decoration: none;
 }
+
 .mc-header ul.mc-breadcrumb li a[href]:hover {
   text-decoration: underline;
 }
@@ -141,6 +158,7 @@ body {
   right: 0;
   transform: translate(30px, 0);
 }
+
 .mc-header .mc-breadcrumb li a::before {
   content: " ";
   display: block;
@@ -155,16 +173,93 @@ body {
   z-index: 1;
   transform: translate(32px, 0);
 }
+
 .mc-header .mc-breadcrumb li:last-child a {
   background: transparent !important;
   color: #303f9f;
 }
+
 .mc-header .mc-breadcrumb li:last-child a::after,
 .mc-header .mc-breadcrumb li:last-child a::before {
   border: 0;
   display: none;
 }
+
+/* --- Hamburger menu  --- */
+/* Hide checkbox */
+.nav-toggle {
+  display: none;
+}
+
+/* Hamburger icon - hidden by default */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  padding: 0 15px;
+  cursor: pointer;
+  user-select: none;
+  line-height: 65px;
+}
+
+/* Container wrapping nav links */
+.mc-nav-links-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    margin-left: auto;
+  }
+
+  .mc-nav-links-wrapper {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    top: 65px; /* below header */
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  /* Show nav links when checkbox is checked */
+  .nav-toggle:checked + .hamburger + .mc-nav-links-wrapper {
+    display: flex;
+  }
+
+  .mc-navlink {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
+  }
+
+  .mc-more-dropdown {
+    margin-left: 0 !important;
+    width: 100%;
+  }
+
+  .mc-drop-menu {
+    position: static;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-top: 0;
+  }
+
+  .mc-drop-menu a {
+    padding-left: 30px;
+  }
+}
 `;
+
 // header.js
 (() => {
   document.addEventListener("DOMContentLoaded", () => {
@@ -172,23 +267,29 @@ body {
     <header class="mc-header">
       <nav class="mc-nav">
         <a class="mc-navbrand" href="https://www.materialscloud.org/home">
-          ${svgS}
+          ${mc_logo_svg}
         </a>
-        <a class="mc-navlink" href="https://www.materialscloud.org/learn">LEARN</a>
-        <a class="mc-navlink" href="https://www.materialscloud.org/work">WORK</a>
-        <a class="mc-navlink" href="https://www.materialscloud.org/discover">DISCOVER</a>
-        <a class="mc-navlink" href="https://www.materialscloud.org/explore">EXPLORE</a>
-        <a class="mc-navlink" href="https://www.materialscloud.org/archive">ARCHIVE</a>
-        <div class="mc-more-dropdown" style="margin-left: auto; position: relative;">
-          <a class="mc-navlink" href="#" id="mc-more-link">More ▾</a>
-          <div class="mc-drop-menu" id="mc-drop-menu" style="display: none;">
-            <a class="mc-drop-link" href="https://www.materialscloud.org/policies">Policies</a>
-            <a class="mc-drop-link" href="https://www.materialscloud.org/dmp">Data Management Plan</a>
-            <a class="mc-drop-link" href="https://www.materialscloud.org/termssummary">Terms of Use</a>
-            <a class="mc-drop-link" href="https://www.materialscloud.org/infrastructure">Infrastructure</a>
-            <a class="mc-drop-link" href="https://www.materialscloud.org/team">Team & Contact</a>
-            <a class="mc-drop-link" href="https://www.materialscloud.org/home#partners">Partners</a>
-            <a class="mc-drop-link" href="https://www.materialscloud.org/explore/connect">Connect your REST API</a>
+    
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="hamburger">&#9776;</label>
+    
+        <div class="mc-nav-links-wrapper">
+          <a class="mc-navlink" href="https://www.materialscloud.org/learn">LEARN</a>
+          <a class="mc-navlink" href="https://www.materialscloud.org/work">WORK</a>
+          <a class="mc-navlink" href="https://www.materialscloud.org/discover">DISCOVER</a>
+          <a class="mc-navlink" href="https://www.materialscloud.org/explore">EXPLORE</a>
+          <a class="mc-navlink" href="https://www.materialscloud.org/archive">ARCHIVE</a>
+          <div class="mc-more-dropdown" style="margin-left: auto; position: relative;">
+            <a class="mc-navlink" href="#" id="mc-more-link">More ▾</a>
+            <div class="mc-drop-menu" id="mc-drop-menu" style="display: none;">
+              <a class="mc-drop-link" href="https://www.materialscloud.org/policies">Policies</a>
+              <a class="mc-drop-link" href="https://www.materialscloud.org/dmp">Data Management Plan</a>
+              <a class="mc-drop-link" href="https://www.materialscloud.org/termssummary">Terms of Use</a>
+              <a class="mc-drop-link" href="https://www.materialscloud.org/infrastructure">Infrastructure</a>
+              <a class="mc-drop-link" href="https://www.materialscloud.org/team">Team & Contact</a>
+              <a class="mc-drop-link" href="https://www.materialscloud.org/home#partners">Partners</a>
+              <a class="mc-drop-link" href="https://www.materialscloud.org/explore/connect">Connect your REST API</a>
+            </div>
           </div>
         </div>
       </nav>
@@ -203,7 +304,7 @@ body {
 
     // Load headerCSS
     const style = document.createElement("style");
-    style.textContent = cssS;
+    style.textContent = mc_header_css;
     document.head.appendChild(style);
 
     const bcC = document.querySelector("nav[aria-label='breadcrumb']");
