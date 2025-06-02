@@ -87,7 +87,7 @@ body {
 
 .mc-header .mc-drop-menu a {
   display: block;
-  color: #455860;
+  color:rgb(30, 30, 30);
   font-weight: 300;
   padding: 10px 14px;
   font-size: 16px;
@@ -127,6 +127,10 @@ body {
 
 .mc-header ul.mc-breadcrumb li a {
   text-decoration: none;
+  color:#303f9f
+}
+
+.mc-header ul.mc-breadcrumb li a:visited {
   color:#303f9f
 }
 
@@ -241,10 +245,14 @@ body {
     box-shadow: none;
     padding: 0;
     margin-top: 0;
+    color: "rgb(200,0,0)"
+
   }
 
   .mc-drop-menu a {
     padding-left: 30px;
+    color:rgb(30, 30, 30);
+
   }
 }
 `;
