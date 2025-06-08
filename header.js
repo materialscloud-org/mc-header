@@ -11,11 +11,6 @@ body {
   background: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   margin: 0;
-  position: fixed !important;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
   }
   
 .mc-header-separator {
