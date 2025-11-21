@@ -248,7 +248,15 @@ body {
           <a class="mc-navlink" href="https://www.materialscloud.org/explore">EXPLORE</a>
           <a class="mc-navlink" href="https://www.materialscloud.org/archive">ARCHIVE</a>
           <div class="mc-more-dropdown" style="margin-left: auto; position: relative;">
-            <a class="mc-navlink" href="#" id="mc-more-link">More ▾</a>
+            <a class="mc-navlink" href="#" id="mc-more-link">More <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="4 -4 20 20"
+              fill="currentColor"
+            >
+              <path d="M12 15l-7-7h14z"></path>
+            </svg></a>
             <div class="mc-drop-menu" id="mc-drop-menu" style="display: none;">
               <a class="mc-drop-link" href="https://www.materialscloud.org/policies">Policies</a>
               <a class="mc-drop-link" href="https://www.materialscloud.org/dmp">Data Management Plan</a>
