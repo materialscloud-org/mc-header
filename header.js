@@ -6,12 +6,13 @@ const mc_logo_svg = `
 const mc_header_css = `
 body {
   margin: 0;
-  background-color: aliceblue;
 }
   
 .mc-header-separator {
   width: 100%;
   height: 16px;
+  background-color: aliceblue;
+
 }
 .mc-header .mc-nav {
   background-color: #fff;
