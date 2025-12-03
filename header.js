@@ -6,21 +6,15 @@ const mc_logo_svg = `
 const mc_header_css = `
 body {
   margin: 0;
+  background-color: aliceblue;
 }
-.mc-header {
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  margin: 0;
-  }
   
 .mc-header-separator {
   width: 100%;
   height: 16px;
-  background: rgb(240, 246, 249);
-  margin: 0;
-  border: none;
 }
 .mc-header .mc-nav {
+  background-color: #fff;
   display: flex;
   align-items: center;
   border-bottom: 3px solid #dee6e6;
@@ -29,32 +23,23 @@ body {
   font-size: 16px;
   box-sizing: border-box;
   height: 65px;
-  line-height: 65px;
   position: relative;
 }
 .mc-header .mc-navbrand {
   min-width: 58px;
-  font-size: 0;
   padding: 7px 15px 5px 22px;
-  float: left;
-  line-height: 0;
 }
 .mc-header .mc-navbrand svg {
   width: 58px;
-  height: auto;
   display: block;
 }
 .mc-nav .mc-navlink {
   display: inline-block;
   padding: 14px 15px;
-  font-size: 16px;
   font-weight: 700;
-  line-height: 32px;
-  height: 60px;
-  box-sizing: border-box;
-  text-align: center;
   color: #455860;
   text-decoration: none;
+  text-align: center;
 }
 .mc-header .mc-navlink:hover {
   color: #8fa5af;
@@ -67,21 +52,18 @@ body {
   z-index: 200;
 }
 .mc-header .mc-drop-menu {
-  display: none;
   position: absolute;
-  right: 0;
+  right: 10px;
   background-color: #fff;
   min-width: 220px;
   border-radius: 6px;
   border: 2px solid #dee6e6;
   z-index: 100;
   padding: 5px 0;
-  margin-top: -8px;
 }
 .mc-header .mc-drop-menu a {
   display: block;
   color:rgb(30, 30, 30);
-  font-weight: 300;
   padding: 10px 14px;
   font-size: 16px;
   line-height: 10px;
@@ -89,25 +71,22 @@ body {
 }
 .mc-header .mc-drop-menu a:hover {
   background-color: #fbfcfc;
+    color:#8fa5af;
+
 }
 .mc-header ul.mc-breadcrumb {
   padding: 7px 10px 7px 20px;
-  list-style: none;
   background-color: #f5f5f5;
-  border-radius: 2px;
+  color: #3e70bb;
   border: 1px solid #d6d6d6;
-  font-size: 16px;
-  font-weight: 300;
-  font-family: sans-serif;
-  text-align: left;
-  margin: 10px 15px 30px 15px;
+  font-family: "Open Sans", sans-serif ;
+  margin: 0px 20px;
   overflow: hidden;
   display: flex;
-  justify-content: start;
   align-items: center;
 }
 .mc-header ul.mc-breadcrumb li {
-  color: #303f9f;
+  color: #3e70bb;
   display: inline;
   line-height: 1;
   font-size: 16px;
@@ -116,10 +95,10 @@ body {
 }
 .mc-header ul.mc-breadcrumb li a {
   text-decoration: none;
-  color:#303f9f
+  color: #3e70bb;
 }
 .mc-header ul.mc-breadcrumb li a:visited {
-  color:#303f9f
+  color:#3e70bb;
 }
 .mc-header ul.mc-breadcrumb li a[href]:hover {
   text-decoration: underline;
@@ -151,10 +130,7 @@ body {
   z-index: 1;
   transform: translate(32px, 0);
 }
-.mc-header .mc-breadcrumb li:last-child a {
-  background: transparent !important;
-  color: #303f9f;
-}
+
 .mc-header .mc-breadcrumb li:last-child a::after,
 .mc-header .mc-breadcrumb li:last-child a::before {
   border: 0;
@@ -172,15 +148,16 @@ body {
   padding: 0 15px;
   cursor: pointer;
   user-select: none;
-  line-height: 65px;
 }
 /* Container wrapping nav links */
 .mc-nav-links-wrapper {
+  background: #fff;
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
   width: 100%;
+  top: 65px; /* below header */
 }
+
 /* Responsive styling */
 @media (max-width: 768px) {
   .hamburger {
@@ -190,12 +167,7 @@ body {
   .mc-nav-links-wrapper {
     display: none;
     flex-direction: column;
-    width: 100%;
-    background: #fff;
     position: absolute;
-    top: 65px; /* below header */
-    left: 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     z-index: 999;
   }
   /* Show nav links when checkbox is checked */
@@ -203,7 +175,6 @@ body {
     display: flex;
   }
   .mc-navlink {
-    display: block;
     width: 100%;
     padding: 12px 20px;
     box-sizing: border-box;
@@ -213,17 +184,9 @@ body {
     margin-left: 0 !important;
     width: 100%;
   }
-  .mc-drop-menu {
-    position: static;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-    margin-top: 0;
-    color: "rgb(200,0,0)"
-  }
-  .mc-drop-menu a {
-    padding-left: 30px;
-    color:rgb(30, 30, 30);
+  .mc-header .mc-drop-menu {
+    position: inherit;
+    right: 0;
   }
 }
 `;
@@ -270,9 +233,9 @@ body {
         </div>
       </nav>
       <div class="mc-header-separator"></div>
-      <nav aria-label="breadcrumb">
         <ul class="mc-breadcrumb" id="breadcrumb-list"></ul>
-      </nav>
+      <div class="mc-header-separator"></div>
+
     </header>`;
 
     // Insert header
