@@ -314,4 +314,37 @@ body {
       }
     });
   });
+
+window.updateBreadcrumbs = function (breadcrumbsPath) {
+  const list = document.getElementById("breadcrumb-list");
+  if (!list) return;
+
+  // Clear existing breadcrumbs
+  list.innerHTML = "";
+
+  // Populate new breadcrumbs
+  breadcrumbsPath.forEach((item) => {
+    const li = document.createElement("li");
+    if (item.link) {
+      const a = document.createElement("a");
+      a.href = item.link;
+      a.textContent = item.name;
+      li.appendChild(a);
+    } else {
+      li.textContent = item.name;
+    }
+    list.appendChild(li);
+  });
+
+  // Update active nav link based on first breadcrumb
+  const first = breadcrumbsPath[0]?.name?.toUpperCase();
+  if (first) {
+    document.querySelectorAll(".mc-navlink").forEach((link) => {
+      link.classList.toggle(
+        "active",
+        link.textContent.trim().toUpperCase() === first
+      );
+    });
+  }
+};
 })();
