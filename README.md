@@ -19,7 +19,7 @@ The script can also be delivered via jsdelivr CDN:
 
 By default no breadcrumbs are rendered, however they can be passed to the script by defining a `breadcrumbsPath` within html.
 
-````JS
+```JS
 <script>
   var breadcrumbsPath = [
     { name: "Work", link: "https://www.materialscloud.org/work/" },
@@ -33,6 +33,7 @@ By default no breadcrumbs are rendered, however they can be passed to the script
     },
   ];
   </script>
+```
 
 The breadcrumbs can be added later, or even dynamically by using the exposed updateBreadcrumbs function, this is particularly useful for Single page apps / tabbed content.
   ```JS
