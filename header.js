@@ -216,8 +216,9 @@ body {
               xmlns="http://www.w3.org/2000/svg"
               width="18"
               height="18"
-              viewBox="4 -4 20 20"
+              viewBox="4 2 18 20"
               fill="currentColor"
+              style="vertical-align: middle;"
             >
               <path d="M12 15l-7-7h14z"></path>
             </svg></a>
