@@ -105,31 +105,36 @@ body {
   text-decoration: underline;
 }
 .mc-header .mc-breadcrumb li a::after {
-  content: " ";
-  display: block;
+  content: "";
+  width: 0;
+  height: 0;
+  top: 50%;
+  right: 0;
+  margin-top: -50px;
   border-top: 50px solid transparent;
   border-bottom: 50px solid transparent;
   border-left: 30px solid #f5f5f5;
   position: absolute;
-  top: 50%;
-  margin-top: -50px;
+  transform: translateX(30px);
   z-index: 2;
-  right: 0;
-  transform: translate(30px, 0);
+  pointer-events: none;
 }
+
 .mc-header .mc-breadcrumb li a::before {
-  content: " ";
-  display: block;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 50%;
+  right: 0;
+  margin-top: -50px;
+  margin-left: 0;
   border-top: 50px solid transparent;
   border-bottom: 50px solid transparent;
   border-left: 30px solid #d6d6d6;
-  position: absolute;
-  top: 50%;
-  margin-top: -50px;
-  margin-left: 2px;
-  right: 0;
+  transform: translateX(32px);
   z-index: 1;
-  transform: translate(32px, 0);
+  pointer-events: none;
 }
 
 .mc-header .mc-breadcrumb li:last-child a::after,
